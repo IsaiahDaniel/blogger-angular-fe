@@ -8,7 +8,7 @@ import { HttpService } from "src/app/services/http.service";
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent implements OnInit {
-  blogs: Blog[] = [];
+  blogs: any[] = [];
   isLoading = true;
 
   constructor(private httpService: HttpService) {}
@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit {
     const path = "blogs";
     this.httpService.get(path, (data: any) => {
       this.isLoading = false;
-      if(data.success){
+      console.log("data getblogs", data.data);
+      if (data.success) {
         this.blogs = data.data;
       }
     });

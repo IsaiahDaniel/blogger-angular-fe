@@ -9,20 +9,15 @@
 
   <div class="col-md-6 mb-5">
     <app-loading [show]="isLoading"></app-loading>
-    <div class="" *ngFor="let blog of blogs">
+    <a (click)="goBack()" class="btn btn-outline-dark mb-3"> Go Back </a>
+    <div class="" *ngIf="blog">
       <div>
         <img src="/assets/angular-image.png" class="img-fluid" />
       </div>
       <h2>{{ blog.title }}</h2>
-      <div class="text-truncate">
+      <div>
         {{ blog.content }}
       </div>
-      <a
-        [routerLink]="['/blog/', blog._id]"
-        class="btn btn-outline-danger mt-4 mb-4"
-      >
-        Read More
-      </a>
     </div>
   </div>
   <div class="col-md-3">
