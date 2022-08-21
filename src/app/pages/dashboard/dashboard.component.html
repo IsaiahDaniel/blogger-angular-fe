@@ -1,0 +1,33 @@
+<div class="row mt-4">
+  <div class="col-md-3">
+    <ul class="list-group sticky-top">
+      <li class="list-group-item">Technology</li>
+      <li class="list-group-item">Music</li>
+      <li class="list-group-item">Football</li>
+    </ul>
+  </div>
+
+  
+  <div class="col-md-6 mb-5">
+    <app-loading [show]="isLoading"></app-loading>
+    <div class="" *ngFor="let blog of blogs">
+      <div>
+        <img src="/assets/angular-image.png" class="img-fluid" />
+      </div>
+      <h2>{{ blog.title }}</h2>
+      <div>
+        {{ blog.content }}
+      </div>
+      <a routerLink="/blog/123" class="btn btn-outline-danger mt-4 mb-4">
+        Read More
+      </a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card sticky-top">
+      <div class="card-img-top">
+        <img src="/assets/default-image.jpeg" class="w-100 h-50" />
+      </div>
+    </div>
+  </div>
+</div>

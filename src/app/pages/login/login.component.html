@@ -1,0 +1,67 @@
+<div class="mt-5 w-75 mx-auto">
+  <i class="fa-solid fa-user-large"></i>
+  <h2 class="text-center"><i class="fa-solid fa-user"></i> Welcome Back</h2>
+
+  <form (ngSubmit)="onSubmit()" #formData="ngForm">
+    <div class="form-group mt-4">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        [ngClass]="email.touched && !email.valid ? 'is-invalid' : email.touched && email.valid ? 'is-valid' : '' "
+        class="form-control"
+        name="email"
+        required
+        #email="ngModel"
+        [(ngModel)]="userData.email"
+        placeholder="Enter email"
+      />
+      <small *ngIf="email.touched && email.invalid" class="text-danger">
+        Email is required
+      </small>
+    </div>
+
+    <div class="form-group mt-4">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        [ngClass]="password.touched && !password.valid ? 'is-invalid' : password.touched && password.valid ? 'is-valid' : ''  " 
+        class="form-control"
+        name="password"
+        [(ngModel)]="userData.password"
+        placeholder="Password"
+        required
+        minlength="6"
+        #password="ngModel"
+      />
+    </div>
+    <small *ngIf="password.touched && password.invalid" class="text-danger">
+      password is required.
+    </small>
+    <small *ngIf="password.errors?.minlength" class="text-danger">
+      password must be atleast six characters is required.
+    </small>
+  
+    
+    <div class="form-check mt-2">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+    </div>
+
+    <div class="d-grid gap-2" *ngIf="!loadingForm">
+      <button
+        type="submit"
+        class="btn btn-primary mt-2"
+        [disabled]="formData.invalid"
+      >
+        Submit
+      </button>
+    </div>
+
+    <div class="d-grid gap-2" *ngIf="loadingForm">
+      <button type="submit" class="btn btn-primary mt-2" disabled="true">
+        <app-loading [show]="loadingForm"></app-loading>
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
