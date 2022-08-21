@@ -14,6 +14,7 @@ import { CreatePostComponent } from "./components/create-post/create-post.compon
 import { LoadingComponent } from "./components/loading/loading.component";
 import { DefaultImageComponent } from "./components/default-image/default-image.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
+import { BlogComponent } from './pages/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
     LoadingComponent,
     DefaultImageComponent,
     DashboardComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,
